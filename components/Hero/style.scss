@@ -1,0 +1,116 @@
+@import "@/styles/_breakpoints";
+
+@keyframes opacitySlider {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
+@keyframes nameLeft {
+  from {
+    transform: translateX(-20%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes descRight {
+  from {
+    transform: translateX(20%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes handWave {
+  0% {
+    transform: rotate(0deg);
+  }
+  15% {
+    transform: rotate(16deg);
+  }
+  30% {
+    transform: rotate(-6deg);
+  }
+  45% {
+    transform: rotate(15deg);
+  }
+  75% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.hero {
+  min-width: 1200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 0 10px 0 10px;
+  transform: translate(-50%, -50%);
+  z-index: 1001;
+  font-family: "JetBrains Mono", monospace;
+  animation: 1.5s ease 0s 1 opacitySlider;
+
+  @include monitor {
+    min-width: auto;
+  }
+
+  @include tablet {
+    min-width: auto;
+  }
+
+  &:hover .hand {
+    animation-name: handWave;
+  }
+
+  .hand {
+    display: inline-block;
+    animation-duration: 1.5s;
+    transform-origin: 80% 80%;
+  }
+
+  h1 {
+    font-size: 5rem;
+    animation: 1.5s ease 0s 1 nameLeft;
+
+    @include tablet {
+      font-size: 4rem;
+    }
+    @include mobile {
+      font-size: 2rem;
+    }
+
+    .bigger {
+      font-size: 6rem;
+
+      @include tablet {
+        font-size: 5rem;
+      }
+      @include mobile {
+        font-size: 3rem;
+      }
+    }
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 2rem;
+    opacity: 40%;
+    animation: 1.5s ease 0s 1 descRight;
+
+    @include tablet {
+      font-size: 1.5rem;
+    }
+    @include mobile {
+      font-size: 1.2rem;
+    }
+  }
+}

@@ -1,0 +1,61 @@
+.skills {
+  position: relative;
+  max-width: 1200px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  font-family: "JetBrains Mono", monospace;
+  margin-top: calc(-4vw);
+  z-index: 3000;
+
+  h2 {
+    font-size: 30px;
+  }
+
+  .files {
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    section {
+      min-width: 300px;
+      flex: 1;
+      padding: 10px;
+      margin: 15px 10px 15px 10px;
+      flex-direction: row;
+      border-radius: 10px;
+      background-color: rgba(16, 16, 16, 0.4);
+
+      div:first-child {
+        display: flex;
+        justify-content: center;
+        margin: 10px;
+        font-size: 30px;
+      }
+    }
+
+    * > div:nth-child(2) {
+      display: flex;
+      flex-wrap: wrap;
+
+      p {
+        margin: 4px;
+        display: flex;
+        padding: 4px 8px 4px 8px;
+        border-radius: 8px;
+        background-color: rgba(32, 32, 32, 1);
+        border: 2px solid rgba(60, 60, 300, 0.7);
+        transition: 0.1s ease;
+      }
+
+      p:hover {
+        scale: 110%;
+        background-color: rgba(60, 60, 300, 0.8);
+      }
+    }
+  }
+}

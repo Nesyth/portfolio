@@ -1,0 +1,21 @@
+@keyframes initialLoad {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
+.canvas {
+  position: relative;
+  height: calc(100vh + 20vw);
+  background-color: #181b27;
+  z-index: 999;
+  overflow: hidden;
+}
+
+.canvas-container {
+  animation: 3s ease 0s 1 initialLoad;
+  filter: blur(10vw);
+}
