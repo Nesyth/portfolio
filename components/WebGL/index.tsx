@@ -4,7 +4,7 @@ import "./style.scss";
 
 import * as THREE from "three";
 import { Canvas, ThreeElements, useFrame } from "@react-three/fiber";
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 interface Box {
   uid: number;
@@ -33,7 +33,7 @@ function Box(props: Box & ThreeElements["mesh"]) {
   const generatedZ = useRef<number>(generatePosition(5, 15));
 
   useFrame((_, delta) => {
-    mesh.current.position.z += delta * 3;
+    mesh.current.position.z += delta * 2;
 
     if (!hitMax.current) {
       setOpacity(
@@ -53,12 +53,11 @@ function Box(props: Box & ThreeElements["mesh"]) {
       generatedX.current = generatePosition(-4, 4);
       generatedY.current = generatePosition(-4, 4);
       generatedZ.current = generatePosition(5, 15);
-      color.current = generateRandomColor();
     }
 
-    if (mesh.current.position.z > -1 && mesh.current.position.z < 0) {
+    if (mesh.current.position.z > -1) {
       hitMax.current = true;
-      setOpacity((opacity) => opacity - 0.02);
+      setOpacity((opacity) => opacity - opacity / 100 - 0.001);
     }
   });
 
@@ -82,7 +81,7 @@ function WebGL() {
     <>
       <ambientLight />
       <pointLight position={[0, 0, 5]} />
-      {Array.from({ length: 8 }, (_, uid) => (
+      {Array.from({ length: 6 }, (_, uid) => (
         <Box key={uid} uid={uid} geometry={geom} />
       ))}
     </>
@@ -92,7 +91,7 @@ function WebGL() {
 function Scene() {
   return (
     <main className="canvas">
-      <Canvas className="canvas-container" camera={{ fov: 45 }}>
+      <Canvas className="canvas-container" camera={{ fov: 45 }} dpr={0.05}>
         <WebGL />
       </Canvas>
     </main>

@@ -17,5 +17,5 @@
 
 .canvas-container {
   animation: 3s ease 0s 1 initialLoad;
-  filter: blur(10vw);
+  filter: blur(calc(40px + 8vw));
 }
