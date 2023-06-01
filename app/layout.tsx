@@ -1,4 +1,4 @@
-import "./globals.scss";
+import "@/styles/_globals.scss";
 
 export const metadata = {
   title: "Mikołaj Jakubowski | Portfolio",

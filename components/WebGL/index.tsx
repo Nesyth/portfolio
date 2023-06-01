@@ -4,7 +4,7 @@ import "./style.scss";
 
 import * as THREE from "three";
 import { Canvas, ThreeElements, useFrame } from "@react-three/fiber";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 
 interface Box {
   uid: number;
