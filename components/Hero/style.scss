@@ -67,14 +67,11 @@
     min-width: auto;
   }
 
-  &:hover .hand {
-    animation-name: handWave;
-  }
-
   .hand {
     display: inline-block;
     animation-duration: 1.5s;
     transform-origin: 80% 80%;
+    animation-name: handWave;
   }
 
   h1 {
